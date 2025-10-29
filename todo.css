@@ -1,0 +1,190 @@
+
+        #body-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* table---------------- */
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            table-layout: fixed;
+            border: 1px solid #000;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: left;
+            word-wrap: break-word;
+
+        }
+
+        th {
+            text-align: center;
+            background-color: #2b816b;
+            color: #bdc3c7;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            margin-bottom: 15PX;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #877b63;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-left: 857px;
+            box-shadow: 2px 2px 10px rgba(25, 25, 25, 0.2);
+        }
+
+        #btn:hover {
+            background-color: #356e60;
+        }
+
+        /* popup ----------------------------*/
+        #popup-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            display: none;
+
+        }
+
+        #popup-body {
+            background-color: #d8e8ec;
+            padding: 20px;
+            box-shadow: 0px 1px 5px rgb(15, 3, 28);
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        input,
+        textarea {
+
+            padding: 10px;
+            width: 300px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            outline: 0px;
+            cursor: pointer;
+
+        }
+
+        input:hover {
+            box-shadow: 1px 2px 10px rgb(43, 37, 116);
+        }
+
+        textarea:hover {
+            box-shadow: 1px 2px 10px rgb(43, 37, 116);
+
+        }
+
+        #sunmit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #b1ada4;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 20px rgba(29, 1, 1, 0.2);
+        }
+
+        #sunmit-btn:hover {
+            background-color: #23d3a7;
+            box-shadow: 0px 1px 5px rgb(15, 3, 28);
+        }
+
+        label {
+            font-weight: bold;
+            padding: 3px;
+        }
+
+        #icon {
+            float: right;
+            cursor: pointer;
+        }
+
+        #icon:hover {
+            color: rgb(172, 53, 53);
+        }
+
+        label::before {
+            content: '*';
+            color: #7a0b0b;
+
+        }
+
+        span {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+
+        #error-msg {
+            display: none;
+            color: #7a0b0b;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* confirm popup - */
+        #confirm-container {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+        }
+
+        #confirm-box {
+            background: #fff;
+            padding: 18px;
+            border-radius: 8px;
+            width: 320px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #confirm-msg {
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .confirm-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .confirm-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #confirm-yes {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        #confirm-no {
+            background: #bdc3c7;
+            color: #111;
+        }
