@@ -107,7 +107,6 @@
             </div>
         </td>
     `;
-
             let editBtn = newRow.getElementsByClassName('edit-btn')[0];
             let deleteBtn = newRow.getElementsByClassName('delete-btn')[0];
 
@@ -144,3 +143,4 @@
             });
         }
     
+
