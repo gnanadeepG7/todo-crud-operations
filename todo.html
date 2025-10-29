@@ -1,1 +1,61 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo-list</title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="todo1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    
+</head>
+
+<body>
+    <div id="body-container">
+        <button id="btn">Add person</button>
+        <!-- table -->
+        <table id="table">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Comments</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+        <div id="popup-container">
+            <div id="popup-body">
+                <!-- form popup -->
+                <form action="">
+                    <i class="fa-solid fa-square-xmark" id="icon" title="Close"></i><br>
+                    <p id="error-msg">Please fill all fields</p>
+                    <label for="Fname">First Name:</label><input type="text" id="fname" placeholder="fname"><br>
+                    <label for="lname">Last Name:</label><input type="text" id="lname" placeholder="lname"><br>
+                    <label for="age">Age:</label><input type="number" id="age" placeholder="Age"><br>
+                    <label for="dob">DOB:</label><input type="date" id="dob" placeholder="DOB"><br>
+                    <label for="email">Email:</label><input type="email" id="email" placeholder="Email"><br>
+                    <span for="comments">Comments:</span><textarea id="comments" placeholder="Comments"></textarea><br>
+                    <input type="submit" id="sunmit-btn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--  confirm popup -->
+    <div id="confirm-container">
+        <div id="confirm-box">
+            <div id="confirm-msg"></div>
+            <div class="confirm-actions">
+                <button id="confirm-yes" class="confirm-btn">Yes</button>
+                <button id="confirm-no" class="confirm-btn">No</button>
+            </div>
+        </div>
+    </div> 
+    <script>
+    </script>
+
+</body>
+</html>
+
