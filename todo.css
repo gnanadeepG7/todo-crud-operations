@@ -1,4 +1,10 @@
 /* css file-------------------- */
+body {
+    padding: 0px;
+    margin: 0px;
+    background-attachment: fixed;
+}
+
 #body-container {
     display: flex;
     flex-direction: column;
@@ -48,11 +54,16 @@ th {
 
 /* popup ----------------------------*/
 #popup-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
 #popup-body {
@@ -154,15 +165,18 @@ span {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 #confirm-msg {
     margin-bottom: 14px;
     font-weight: 600;
 }
+
 .confirm-actions {
     display: flex;
     gap: 12px;
     justify-content: center;
 }
+
 .confirm-btn {
     padding: 8px 16px;
     border: none;
@@ -170,11 +184,18 @@ span {
     cursor: pointer;
     font-weight: 600;
 }
+
 #confirm-yes {
     background: #e74c3c;
     color: #fff;
 }
+
 #confirm-no {
     background: #bdc3c7;
     color: #111;
 }
+ #empty-row {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
