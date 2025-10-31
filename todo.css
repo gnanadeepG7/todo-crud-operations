@@ -2,56 +2,56 @@
 body {
     padding: 0px;
     margin: 0px;
-    background-attachment: fixed;
 }
-
 #body-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
 /* table---------------- */
 table {
     width: 1000px;
     border-collapse: collapse;
     table-layout: fixed;
-    border: 1px solid #000;
+    border: 1px solid rgb(188, 186, 183);
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
-
-th,
-td {
-    border: 1px solid #000;
+th {
+    border: 1px solid rgb(188, 186, 183);
     padding: 5px;
     text-align: left;
     word-wrap: break-word;
-}
-
-th {
     text-align: center;
-    background-color: #2b816b;
-    color: #bdc3c7;
+    background-color: burlywood;
+
 }
 
+td {
+    border: 1px solid rgb(188, 186, 183);
+    padding-left: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    background-color: rgb(255, 255, 255);
+}
 #btn {
     padding: 10px 20px;
+    margin-top: 30px;
     margin-bottom: 15PX;
     font-size: 20px;
     cursor: pointer;
     border: none;
-    background-color: #877b63;
+    background-color: #deb35c;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s;
     margin-left: 857px;
     box-shadow: 2px 2px 10px rgba(25, 25, 25, 0.2);
 }
-
 #btn:hover {
-    background-color: #356e60;
+    background-color: #16446e;
 }
-
 /* popup ----------------------------*/
 #popup-container {
     display: none;
@@ -65,7 +65,6 @@ th {
     align-items: center;
     z-index: 10;
 }
-
 #popup-body {
     background-color: #d8e8ec;
     padding: 20px;
@@ -73,10 +72,8 @@ th {
     border-radius: 10px;
     width: 300px;
 }
-
 input,
 textarea {
-
     padding: 10px;
     width: 300px;
     box-sizing: border-box;
@@ -86,15 +83,12 @@ textarea {
     outline: 0px;
     cursor: pointer;
 }
-
 input:hover {
     box-shadow: 1px 2px 10px rgb(43, 37, 116);
 }
-
 textarea:hover {
     box-shadow: 1px 2px 10px rgb(43, 37, 116);
 }
-
 #sunmit-btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -105,37 +99,29 @@ textarea:hover {
     border-radius: 5px;
     box-shadow: 2px 2px 20px rgba(29, 1, 1, 0.2);
 }
-
 #sunmit-btn:hover {
     background-color: #23d3a7;
     box-shadow: 0px 1px 5px rgb(15, 3, 28);
 }
-
 label {
     font-weight: bold;
     padding: 3px;
 }
-
 #icon {
     float: right;
     cursor: pointer;
 }
-
 #icon:hover {
     color: rgb(172, 53, 53);
 }
-
 label::before {
     content: '*';
     color: #7a0b0b;
-
 }
-
 span {
     font-weight: bold;
     margin-left: 5px;
 }
-
 #error-msg {
     display: none;
     color: #7a0b0b;
@@ -145,7 +131,6 @@ span {
     font-weight: bold;
     text-align: center;
 }
-
 /* confirm popup - */
 #confirm-container {
     position: fixed;
@@ -156,7 +141,6 @@ span {
     background: rgba(0, 0, 0, 0.4);
     z-index: 9999;
 }
-
 #confirm-box {
     background: #fff;
     padding: 18px;
@@ -165,18 +149,15 @@ span {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-
 #confirm-msg {
     margin-bottom: 14px;
     font-weight: 600;
 }
-
 .confirm-actions {
     display: flex;
     gap: 12px;
     justify-content: center;
 }
-
 .confirm-btn {
     padding: 8px 16px;
     border: none;
@@ -184,18 +165,16 @@ span {
     cursor: pointer;
     font-weight: 600;
 }
-
 #confirm-yes {
     background: #e74c3c;
     color: #fff;
 }
-
 #confirm-no {
     background: #bdc3c7;
     color: #111;
 }
- #empty-row {
-            text-align: center;
-            font-style: italic;
-            color: #555;
-        }
+#empty-row {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
