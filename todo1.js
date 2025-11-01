@@ -18,21 +18,18 @@ let confirmMsg = document.getElementById('confirm-msg');
 let confirmYes = document.getElementById('confirm-yes');
 let confirmNo = document.getElementById('confirm-no');
 let pendingDeleteIndex = null;
-
 // Open popup                             
 btn.addEventListener('click', function () {
     errorMsg.style.display = 'none';
     popupContainer.style.display = 'flex';
 });
-
 // Close popup when icon is clicked
 document.getElementById('icon').addEventListener('click', function () {
     popupContainer.style.display = 'none';
     errorMsg.style.display = 'none';
 });
-
 // the table with updated user data
-function rTable(users) {
+function rTable(users) { 
     while (table.rows.length > 1) {
         table.deleteRow(1);
     }
@@ -77,7 +74,6 @@ form.addEventListener('submit', function (e) {
     errorMsg.style.display = 'none';
     let user = { fname, lname, age, dob, email, comments };
     let users = JSON.parse(localStorage.getItem('users')) || [];
-
     // Update the  new user
     if (editingIndex !== null) {
         users[editingIndex] = user;
@@ -89,7 +85,6 @@ form.addEventListener('submit', function (e) {
     popupContainer.style.display = 'none';
     form.reset();
     editingIndex = null;
-
 });
 // Add a user row to the table
 function addRowToTable(user, index) {
