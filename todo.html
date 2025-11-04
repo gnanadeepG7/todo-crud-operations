@@ -11,37 +11,61 @@
 </head>
 <body>
       <div id="body-container">
-        <H1>TODO - LIST</H1>
+        <h1>TODO - LIST</h1>
         <button id="btn">Add person</button>
-        <!-- table -->
         <table id="table">
-            <tr>
+            <tr> 
+               
                 <th>Name</th>
                 <th>Age</th>
                 <th>DOB</th>
-                <th>Email</th>
+                <th>preferred type</th>
+                <th>Contact</th>
                 <th>Comments</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </table>
+
+        <!-- Popup Form -->
         <div id="popup-container">
             <div id="popup-body">
-                <form action="">
+                <form>
                     <i class="fa-solid fa-square-xmark" id="icon" title="Close"></i><br>
                     <p id="error-msg">Please fill all fields</p>
-                    <label for="Fname">First Name:</label><input type="text" id="fname" placeholder="fname"><br>
-                    <label for="lname">Last Name:</label><input type="text" id="lname" placeholder="lname"><br>
+                    <label for="fname">First Name:</label> <input type="text" id="fname" placeholder="First name"><br>
+                    <label for="lname">Last Name:</label><input type="text" id="lname" placeholder="Last name"><br>
                     <label for="age">Age:</label><input type="number" id="age" placeholder="Age"><br>
-                    <label for="dob">DOB:</label><input type="date" id="dob" placeholder="DOB"><br>
-                    <label for="email">Email:</label><input type="email" id="email" placeholder="Email"><br>
-                    <span for="comments">Comments:</span><textarea id="comments" placeholder="Comments"></textarea><br>
-                    <input type="submit" id="sunmit-btn">
+                    <label for="dob">DOB:</label><input type="date" id="dob" placeholder="DOB">
+                    <p id="dob-error">DOB cannot be in the future</p>
+
+                    <label for="contactType">preferred type:</label>
+                    <select id="contactType">
+                        <option value="email">Email</option>
+                        <option value="phone">Phone Number</option>
+                    </select>
+
+                    <div id="emailField">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Email">
+                    </div>
+                    
+
+                    <div id="phoneField" style="display:none;">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{10}">
+                    </div>
+
+                    <p id="com" for="comments">Comments:</p>
+                    <textarea id="comments" placeholder="Comments"></textarea><br>
+
+                    <input type="submit" id="sunmit-btn" value="Submit">
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- confirm popup -->
+    <!-- Confirm Delete Popup -->
     <div id="confirm-container">
         <div id="confirm-box">
             <div id="confirm-msg"></div>
@@ -51,5 +75,5 @@
             </div>
         </div>
     </div>
-</body>
+
 </html>

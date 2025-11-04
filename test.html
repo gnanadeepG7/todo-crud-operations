@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #body-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* table---------------- */
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            table-layout: fixed;
+            border: 1px solid rgb(188, 186, 183);
+            border-radius: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        th {
+            border: 1px solid rgb(188, 186, 183);
+            padding: 5px;
+            text-align: left;
+            word-wrap: break-word;
+            text-align: center;
+            background-color: burlywood;
+
+        }
+
+        td {
+            border: 1px solid rgb(188, 186, 183);
+            padding-left: 10px;
+            text-align: left;
+            word-wrap: break-word;
+            background-color: rgb(255, 255, 255);
+        }
+
+        #btn {
+            padding: 10px 20px;
+            margin-top: 30px;
+            margin-bottom: 15PX;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #deb35c;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-left: 857px;
+            box-shadow: 2px 2px 10px rgba(25, 25, 25, 0.2);
+        }
+
+        #btn:hover {
+            background-color: #16446e;
+        }
+
+        #popup-container {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        #popup-body {
+            background-color: #d8e8ec;
+            padding: 20px;
+            box-shadow: 0px 1px 5px rgb(15, 3, 28);
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        textarea {
+            padding: 10px;
+            width: 300px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            outline: 0;
+        }
+
+        input:hover,
+        textarea:hover {
+            box-shadow: 1px 2px 10px rgb(43, 37, 116);
+        }
+
+        #sunmit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #b1ada4;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 20px rgba(29, 1, 1, 0.2);
+        }
+
+        #sunmit-btn:hover {
+            background-color: #23d3a7;
+        }
+
+        label {
+            font-weight: bold;
+            padding: 3px;
+        }
+
+        #icon {
+            float: right;
+            cursor: pointer;
+        }
+
+        #icon:hover {
+            color: rgb(172, 53, 53);
+        }
+
+        label::before {
+            content: '*';
+            color: #7a0b0b;
+        }
+
+        #error-msg {
+            display: none;
+            color: #7a0b0b;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+
+        }
+
+        #dob-error {
+            display: none;
+            color: #b30000;
+            font-weight: bold;
+            margin-top: -15px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        #confirm-container {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+        }
+
+        #confirm-box {
+            background: #fff;
+            padding: 18px;
+            border-radius: 8px;
+            width: 320px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .confirm-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .confirm-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #confirm-yes {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        #confirm-no {
+            background: #bdc3c7;
+            color: #111;
+        }
+
+        #empty-row {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
+
+        .edit-btn i,
+        .delete-btn i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .edit-btn i:hover {
+            color: #2980b9;
+        }
+
+        .delete-btn i:hover {
+            color: #e74c3c;
+        }
+
+        .status-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #2c8c57;
+            margin-top: 21px;
+        }
+
+        .status-checkbox:hover {
+            box-shadow: 0px 0px 0px white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body-container">
+        <h1>TODO - LIST</h1>
+        <button id="btn">Add person</button>
+        <table id="table">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Comments</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+
+        <div id="popup-container">
+            <div id="popup-body">
+                <form>
+                    <i class="fa-solid fa-square-xmark" id="icon" title="Close"></i><br>
+                    <p id="error-msg">Please fill all fields</p>
+                    <label for="fname">First Name:</label><input type="text" id="fname"><br>
+                    <label for="lname">Last Name:</label><input type="text" id="lname"><br>
+                    <label for="age">Age:</label><input type="number" id="age"><br>
+                    <label for="dob">DOB:</label><input type="date" id="dob">
+                    <p id="dob-error">DOB cannot be in the future</p>
+                    <label for="email">Email:</p><input type="email" id="email"><br>
+                        <p for="comments">Comments:
+                    </label><textarea id="comments"></textarea><br>
+                    <input type="submit" id="sunmit-btn" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-container">
+        <div id="confirm-box">
+            <div id="confirm-msg"></div>
+            <div class="confirm-actions">
+                <button id="confirm-yes" class="confirm-btn">Yes</button>
+                <button id="confirm-no" class="confirm-btn">No</button>
+            </div>
+        </div>
+    </div>
+    <style>
+
+
+    </style>
+    <label>enter</label><br>
+    <select name="" id="id1">
+        <option>Eail</option>
+        <option>phone nu</option>
+    </select>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let popupContainer = document.getElementById('popup-container');
+        let table = document.getElementById('table');
+        let form = document.querySelector('form');
+        let fname1 = document.getElementById('fname');
+        let lname1 = document.getElementById('lname');
+        let age1 = document.getElementById('age');
+        let dob1 = document.getElementById('dob');
+        let email1 = document.getElementById('email');
+        let comments1 = document.getElementById('comments');
+        let errorMsg = document.getElementById('error-msg');
+        let dobError = document.getElementById('dob-error');
+        let editingIndex = null;
+
+        let confirmContainer = document.getElementById('confirm-container');
+        let confirmMsg = document.getElementById('confirm-msg');
+        let confirmYes = document.getElementById('confirm-yes');
+        let confirmNo = document.getElementById('confirm-no');
+        let pendingDeleteIndex = null;
+
+        // Open popup
+        btn.addEventListener('click', function () {
+            errorMsg.style.display = 'none';
+            dobError.style.display = 'none';
+            popupContainer.style.display = 'flex';
+            document.getElementById('sunmit-btn').value = 'Submit';
+        });
+
+        // Close popup
+        document.getElementById('icon').addEventListener('click', function () {
+            popupContainer.style.display = 'none';
+            errorMsg.style.display = 'none';
+            dobError.style.display = 'none';
+            form.reset();
+            editingIndex = null;
+        });
+
+        // Render table
+        function rTable(users) {
+            while (table.rows.length > 1) table.deleteRow(1);
+
+            if (users.length === 0) {
+                let row = table.insertRow();
+                let cell = row.insertCell(0);
+                cell.colSpan = 7;
+                cell.id = "empty-row";
+                cell.textContent = "No data available. Please add a data.";
+                return;
+            }
+            users.forEach((user, idx) => addRowToTable(user, idx));
+        }
+
+        // Load data
+        window.addEventListener('load', function () {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            rTable(users);
+        });
+
+        // Form submit
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let fname = fname1.value;
+            let lname = lname1.value;
+            let age = age1.value;
+            let dob = dob1.value;
+            let email = email1.value;
+            let comments = comments1.value;
+
+            if (fname === "" || lname === "" || age === "" || dob === "" || email === "") {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = "Please fill all fields";
+                dobError.style.display = 'none';
+                return;
+            }
+
+            const today = new Date();
+            if (new Date(dob) > today) {
+                dobError.style.display = 'block';
+                return;
+            } else {
+                dobError.style.display = 'none';
+            }
+
+            errorMsg.style.display = 'none';
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let status = "Pending";
+            let user = { fname, lname, age, dob, email, comments, status };
+
+            if (editingIndex !== null) {
+                users[editingIndex] = user;
+            } else {
+                users.push(user);
+            }
+
+            localStorage.setItem('users', JSON.stringify(users));
+            rTable(users);
+            popupContainer.style.display = 'none';
+            form.reset();
+            editingIndex = null;
+        });
+
+        // Add row
+        function addRowToTable(user, index) {
+            let newRow = table.insertRow();
+            newRow.innerHTML = `
+        <td>${user.fname} ${user.lname}</td>
+        <td>${user.age}</td>
+        <td>${user.dob}</td>
+        <td>${user.email}</td>
+        <td>${user.comments}</td>
+        <td>${user.status}</td>
+        <td>
+            <div style="display:flex;gap:10px;justify-content:center;align-items:center;">
+                <input type="checkbox" class="status-checkbox" ${user.status === 'Completed' ? 'checked' : ''}>
+                <p class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></p>
+                <p class="delete-btn"><i class="fa-solid fa-trash-can"></i></p>
+            </div>
+        </td>
+    `;
+
+            let checkbox = newRow.querySelector('.status-checkbox');
+            checkbox.addEventListener('change', function () {
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                users[index].status = this.checked ? "Completed" : "Pending";
+                localStorage.setItem('users', JSON.stringify(users));
+                rTable(users);
+            });
+
+            newRow.querySelector('.delete-btn').addEventListener('click', function () {
+                pendingDeleteIndex = index;
+                confirmMsg.textContent = `Are you sure you want to delete ${user.fname} ${user.lname}?`;
+                confirmContainer.style.display = 'flex';
+            });
+
+            confirmYes.onclick = function () {
+                if (pendingDeleteIndex !== null) {
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    users.splice(pendingDeleteIndex, 1);
+                    localStorage.setItem('users', JSON.stringify(users));
+                    rTable(users);
+                }
+                confirmContainer.style.display = 'none';
+                pendingDeleteIndex = null;
+            };
+
+            confirmNo.onclick = function () {
+                confirmContainer.style.display = 'none';
+                pendingDeleteIndex = null;
+            };
+
+            newRow.querySelector('.edit-btn').addEventListener('click', function () {
+                editingIndex = index;
+                fname1.value = user.fname;
+                lname1.value = user.lname;
+                age1.value = user.age;
+                dob1.value = user.dob;
+                email1.value = user.email;
+                comments1.value = user.comments;
+                document.getElementById('sunmit-btn').value = 'Update';
+                popupContainer.style.display = 'flex';
+            });
+        }
+
+        // Auto-calc age when DOB changes
+        dob1.addEventListener('change', function () {
+            let dob = new Date(dob1.value);
+            age1.value = calculateAge(dob);
+        });
+
+        age1.addEventListener('change', function () {
+            let age = parseInt(age1.value);
+            if (!isNaN(age) && age >= 0) {
+                const today = new Date();
+                const birthYear = today.getFullYear() - age;
+                const dob = new Date(today.setFullYear(birthYear));
+                dob1.value = dob.toISOString().split('T')[0];
+            }
+        });
+
+        function calculateAge(dob) {
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            return age;
+        }
+    </script>
+</body>
+
+</html>
